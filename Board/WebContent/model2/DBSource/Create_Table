@@ -1,0 +1,54 @@
+-------------------------------------------------------
+
+--  DDL for Table BOARD
+
+--------------------------------------------------------
+
+  CREATE TABLE "BOARD"
+
+   ( "IDX" NUMBER,
+
+ "TITLE" VARCHAR2(200 BYTE),
+
+ "WRITER" VARCHAR2(20 BYTE),
+
+ "REGDATE" VARCHAR2(20 BYTE),
+
+ "COUNT" NUMBER,
+
+ "CONTENT" CLOB,
+
+ "REGIP" VARCHAR2(20 BYTE) DEFAULT '127.0.0.1',
+
+ "FILENAME" VARCHAR2(200 BYTE)
+
+   ) ;
+
+--------------------------------------------------------
+
+--  Constraints for Table BOARD
+
+--------------------------------------------------------
+
+  ALTER TABLE "BOARD" ADD CONSTRAINT "BOARD_PK" PRIMARY KEY ("IDX")
+
+   ALTER TABLE "BOARD" MODIFY ("IDX" NOT NULL ENABLE);
+
+   ALTER TABLE "BOARD" MODIFY ("TITLE" NOT NULL ENABLE);
+
+   ALTER TABLE "BOARD" MODIFY ("WRITER" NOT NULL ENABLE);
+
+   ALTER TABLE "BOARD" MODIFY ("REGDATE" NOT NULL ENABLE);
+
+   ALTER TABLE "BOARD" MODIFY ("COUNT" NOT NULL ENABLE);
+
+   ALTER TABLE "BOARD" MODIFY ("CONTENT" NOT NULL ENABLE);
+
+
+--------------------------------------------------------
+
+--  DDL for Sequence BOARD_SEQ
+
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "BOARD_SEQ"  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 134 CACHE 20 NOORDER  NOCYCLE ;

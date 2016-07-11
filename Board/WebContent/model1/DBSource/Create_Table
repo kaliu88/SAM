@@ -1,0 +1,12 @@
+DROP TABLE board;
+
+CREATE table board(idx NUMBER, 
+                    title VARCHAR2(200), 
+                    writer VARCHAR2(20), 
+                    regdate VARCHAR2(20), 
+                    content CLOB,
+                    count NUMBER,
+                    constraint pk_board primary key(idx));
+
+select idx, title, writer, regdate, count from board;                    
+commit;

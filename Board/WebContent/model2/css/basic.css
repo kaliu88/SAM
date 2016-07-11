@@ -1,0 +1,12 @@
+@CHARSET "EUC-KR";
+th
+{
+	width: 10%;
+	text-align: left;
+}
+
+#submit_button
+{
+	width: 200px;	
+}
+
