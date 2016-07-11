@@ -9,5 +9,6 @@
  		<td>${board.writer }</td>
   		<td>${board.regdate }</td>
   		<td>${board.count }</td>
+  		<td></td>
 	</tr>
 </c:forEach>
