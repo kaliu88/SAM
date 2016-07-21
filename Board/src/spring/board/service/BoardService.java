@@ -7,10 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.portlet.ModelAndView;
 
-import com.board.model2.beans.Board;
+import com.board.beans.Board;
 import com.board.model2.controller.BoardController;
 import com.board.model2.dao.BoardDao;
 import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 @Service
 public class BoardService extends BoardController{
@@ -21,13 +22,11 @@ public class BoardService extends BoardController{
 		if(page == null)
 			page = 0;
 		
-		ArrayList<Board> articleList = BoardDao.getInstance().getAticleList(page);//파라미터로 들어온 page 값을 dao로 보내 검색후 받은 List ArrayList에 담아줌.
-		
-		
-		
-		ModelAndView mav = new ModelAndView(); //ModelandView에 해당 값을 셋팅
-		mav.addObject("articleList", articleList); // Model(Dao)에서 받은 List값 셋팅
-		mav.addObject("page", page); //페이지 번호를 view에서 보여주기 위해
+		ArrayList<Board> articleList = BoardDao.getInstance().getAticleList(page);
+						
+		ModelAndView mav = new ModelAndView(); 
+		mav.addObject("articleList", articleList);
+		mav.addObject("page", page); 
 		
 		return mav;
 	}
@@ -46,15 +45,22 @@ public class BoardService extends BoardController{
 		
 		try
 		{
-			
+			multi = new MultipartRequest(request, savePath, size, "euc-kr", new DefaultFileRenamePolicy());
 		}
 		catch (Exception e)
 		{
 			e.printStackTrace();
 		}
 		
-		ModelAndView mav = new ModelAndView();
-		return mav;
+		int count = 0;
+		
+		article.setRegip(request.getRemoteAddr());
+		article.setCount(count);
+		
+		BoardDao.getInstance().insertArticle(article);
+		
+
+		return new ModelAndView("insert");
 	}
 
 }

@@ -1,4 +1,4 @@
-<%@page import="com.board.model2.beans.Board"%>
+<%@page import="com.board.beans.Board"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.security.interfaces.RSAKey"%>
 <%@page import="java.util.Iterator"%>
@@ -19,44 +19,6 @@
 </head>
 
 <body>
-	<h1>게시글 리스트</h1>
-	<table>
-		<tr>
-			<th>번호</th>
-			<th>제목</th>
-			<th>작성자</th>
-			<th>날짜</th>
-			<th>조회수</th>
-		</tr>
-		<c:forEach items="${boardArray}" var="board">
-	  	<tr>
-	  		<td>${board.idx }</td>
-	  		<td><a href="count.do?idx=${board.idx }&page=${page}">${board.title }</a></td>
-	  		<td>${board.writer }</td>
-	  		<td>${board.regdate }</td>
-	  		<td>${board.count }</td>
-	  	</tr>
-	  	</c:forEach>
-	</table>
-	
-	
-	<c:if test="${page > 0}">
-		<a href="list.do?page=${page-10}">이전 페이지</a>
-	</c:if>
-	<c:if test="${page == 0}">
-		<a href="#">이전 페이지</a>
-	</c:if> 
-	<fmt:parseNumber value="${page/10+1 }" type="number"  integerOnly="True" /> 페이지
-	<c:if test="${fn:length( boardArray ) < 10}">
-		<a href="#">다음 페이지</a>
-	</c:if>
-	<c:if test="${fn:length( boardArray ) == 10}">
-		<a href="list.do?page=${page+10 }">다음 페이지</a>
-	</c:if>
-	<br/>
-	<a href="write.do">
-		<input type="button" name="write" value="글쓰기"/>
-	</a> 
-
+	Hello Spring!!
 </body>
 </html>

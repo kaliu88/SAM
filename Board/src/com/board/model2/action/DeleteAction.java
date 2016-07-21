@@ -5,7 +5,7 @@ import java.io.File;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.board.model2.beans.Board;
+import com.board.beans.Board;
 import com.board.model2.controller.CommandAction;
 import com.board.model2.dao.BoardDao;
 
@@ -20,16 +20,16 @@ public class DeleteAction implements CommandAction{
 		
 		BoardDao boardDao = BoardDao.getInstance();
 		
-		//fileNameÀ» °¡Á®¿À±â À§ÇØ idx·Î µ¥ÀÌÅÍ °Ë»ö
+		//fileNameï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ idxï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 		Board board = boardDao.getContentInfo(idx);
 		
-		//fileÀÇ ½ÇÁ¦ À§Ä¡ ÁöÁ¤
+		//fileï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 		String fileName = request.getParameter("fileName");
 		String filePath = request.getSession().getServletContext().getRealPath("/upload")+"\\"+fileName;
 		
 		File file = new File(filePath);
 		
-		//file Á¸Àç À¯¹« Ã¼Å©ÈÄ »èÁ¦.
+		//file ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		if(file.exists() && file.isFile())
 		{
 			file.delete();

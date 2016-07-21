@@ -22,7 +22,7 @@ public class CommonDao {
 		try {
 			Class.forName(driverName);
 			con = DriverManager.getConnection(url, "system", "enovia");
-			System.out.println("Oracle µ¥ÀÌÅÍº£ÀÌ½º db¿¡ ¼º°øÀûÀ¸·Î Á¢¼ÓÇß½À´Ï´Ù");
+			System.out.println("Oracle ì—°ê²°ì™„ë£Œ");
 			
 		} catch (Exception e) {
 			// TODO Auto	-generated catch block
@@ -40,7 +40,7 @@ public class CommonDao {
 	*/
 	
 	/*
-	 * IBatis DB ¼³Á¤
+	 * IBatis DB ì—°ê²°
 	 */
 	
 	private SqlMapClient myDB;

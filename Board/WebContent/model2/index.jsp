@@ -1,4 +1,4 @@
-<%@page import="com.board.model2.beans.Board"%>
+<%@page import="com.board.beans.Board"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.security.interfaces.RSAKey"%>
 <%@page import="java.util.Iterator"%>

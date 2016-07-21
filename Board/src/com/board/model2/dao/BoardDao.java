@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
-import com.board.model2.beans.Board;
+import com.board.beans.Board;
 import com.ibatis.sqlmap.engine.mapping.result.ResultMap;
 
 public class BoardDao extends CommonDao{
@@ -145,7 +145,7 @@ public class BoardDao extends CommonDao{
 		ArrayList<Board> articleList = null;
 		//articleList = (ArrayList<Board>)getDB().queryForList("getBoardList", null);
 
-		//pagging 기법
+		//pagging 
 		articleList = (ArrayList<Board>)getDB().queryForList("getBoardList", null , page,  10);
 				
 		return articleList;
@@ -155,7 +155,7 @@ public class BoardDao extends CommonDao{
 	public void deleteSelect(int idx)throws SQLException
 	{
 		getDB().delete("deleteSelect", idx);
-		System.out.println("삭제 완료");
+		System.out.println("delete");
 	}
 	
 	public Board getContentInfo(int idx)throws SQLException
@@ -174,14 +174,22 @@ public class BoardDao extends CommonDao{
 	public void writeBoard(Board board) throws SQLException
 	{
 		getDB().insert("writeBoard", board);
-		System.out.println("글 생성");
+		System.out.println("write");
 	}
 	
 	public void countAdd(Board infoBoard) throws SQLException
 	{			
 		getDB().update("countAdd", infoBoard);
-		System.out.println("count 증가");
+		System.out.println("count ++");
 	}
+	
+	public void insertArticle(Board article) throws SQLException
+	{
+		
+		
+	}
+	
+	 
 	
 
 }

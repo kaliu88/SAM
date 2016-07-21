@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.portlet.ModelAndView;
 
-import com.board.model2.beans.Board;
+import com.board.beans.Board;
 
 @Controller
 public abstract class BoardController {
 
-	@RequestMapping("/list/{page}")	// url ¸ÊÇÎ
-	public abstract ModelAndView listAction(@PathVariable Integer page) throws Exception; // Restful : url¿¡¼­ ÆÄ¶ó¹ÌÅÍ °¡Á®¿À±â
+	@RequestMapping("/list/{page}")	// url ë§µí•‘
+	public abstract ModelAndView listAction(@PathVariable Integer page) throws Exception; // Restful : urlì—ì„œ íŒŒë¼ë¯¸í„° ê°€ì ¸ì˜¤ê¸°
 
 	@RequestMapping("/insert")
-	public abstract ModelAndView insertAction(	HttpServletRequest request, @ModelAttribute Board article) throws Exception; // ÆÄÀÏ ¾÷·Îµå¸¦ À§ÇÑ request°´Ã¼ // Æû¿¡¼­ ³Ñ¾î¿Â °ª ÀÚµ¿À¸·Î ºó¿¡ ¼ÂÆÃ
+	public abstract ModelAndView insertAction(	HttpServletRequest request, @ModelAttribute Board article) throws Exception; //íŒŒì¼ ì—…ë¡œë“œë¥¼ ìœ„í•œ request ê°ì²´// í¼ì—ì„œ ë„˜ì˜¨ ê°’ ìë™ ìœ¼ë¡œ ë¹ˆì— ì…‹íŒ…
 }

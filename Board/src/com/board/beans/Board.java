@@ -1,4 +1,4 @@
-package com.board.model2.beans;
+package com.board.beans;
 
 public class Board {
 	private int idx;
